@@ -1,3 +1,10 @@
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@media (min-width: 480px) {
+  html {
+    font-size: 112.5%; /* --> 18px base size */
+  }
+}

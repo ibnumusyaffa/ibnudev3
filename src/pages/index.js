@@ -3,28 +3,31 @@ import { css } from "@emotion/core"
 import { Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
-
+import styles from "./index.module.css"
 export default ({ data }) => {
   return (
     <Layout>
-      <div>
+      <div className="max-w-full">
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link to={node.fields.slug} className="no-underline">
-              <div className="flex mt-5">
-                <img
-                  style={{ width: 240 }}
-                  className="mr-5"
-                  src="https://redd.one/static/39f78ca8891b1f175c25c2a3f67aa5b5/78311/thumbnail.jpg"
-                ></img>
-                <div>
-                  <div className="flex items-center text-sm py-2">
+              <div className={styles.post}>
+                {/* <div> */}
+                  <img
+                    className="w-full object-cover rounded m-0"
+                    src={require("../assets/cover.jpg")}
+                  ></img>
+                {/* </div> */}
+                <div className="px-1">
+                  <div className="flex items-center text-sm mt-4 sm:mt-0">
                     <div className="text-red-600">Education</div>
                     <div className="px-3">·</div>
                     <div className="text-gray-600">December 24, 2019</div>
                   </div>
-                  <h3>{node.frontmatter.title}</h3>
-                  <p className="text-gray-900 text-sm">{node.excerpt}</p>
+                  <h3 className="mt-2">{node.frontmatter.title}</h3>
+                  <p className="text-gray-900 text-sm leading-snug">
+                    {node.excerpt}
+                  </p>
                 </div>
               </div>
             </Link>
