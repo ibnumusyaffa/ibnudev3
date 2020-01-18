@@ -18,7 +18,7 @@ export default ({ children }) => {
   )
   return (
     <React.Fragment>
-      <div className="flex items-center justify-center sticky top-0  bg-white border-t-0 border-l-0 border-r-0 border-b border-gray-200 border-solid h-16">
+      <div className="flex items-center justify-center sticky top-0 z-50  bg-white border-t-0 border-l-0 border-r-0 border-b border-gray-200 border-solid h-16">
         <div
           className="flex justify-between p-3 max-w-full items-center px3"
           style={{ width: 800 }}

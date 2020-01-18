@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 import styles from "./index.module.css"
+import Img from "gatsby-image"
 export default ({ data }) => {
   return (
     <Layout>
@@ -13,12 +14,11 @@ export default ({ data }) => {
             <Link to={node.fields.slug} className="no-underline">
               <div className={styles.post}>
                 {/* <div> */}
-                  <img
-                    className="w-full object-cover rounded m-0"
-                    src={require("../assets/cover.jpg")}
-                  ></img>
+                  <Img fluid={node.frontmatter.cover.childImageSharp.fluid} />
                 {/* </div> */}
-                <div className="px-1">
+
+                {/* </div> */}
+                <div className="">
                   <div className="flex items-center text-sm mt-4 sm:mt-0">
                     <div className="text-red-600">Education</div>
                     <div className="px-3">·</div>
@@ -47,12 +47,19 @@ export const query = graphql`
           id
           frontmatter {
             title
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             date(formatString: "DD MMMM, YYYY")
           }
           fields {
             slug
           }
-          excerpt
+          excerpt(pruneLength: 100)
         }
       }
     }
