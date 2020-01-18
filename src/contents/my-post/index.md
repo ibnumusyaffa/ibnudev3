@@ -2,6 +2,7 @@
 title: "Debounce vs Throttle: Definitive Visual Guide"
 date: "2017-08-21"
 cover : cover.jpg
+category: "Backend"
 ---
 
 ## Introduction 
