@@ -11,12 +11,9 @@ function SEO({ type, meta, keywords, image, title, description }) {
           description || data.site.siteMetadata.description
         const twitterCard =
           type === "website" ? "summary" : "summary_large_image"
-        const imageFullUrl =
-          process.env.ENV_NAME === "dev"
-            ? image
-            : data
-            ? data.site.siteMetadata.siteUrl + image
-            : image
+        const imageFullUrl = image
+          ? data.site.siteMetadata.siteUrl + image
+          : DefaultImage
         const ogTitle = title
           ? `${title} | ${data.site.siteMetadata.title}`
           : data.site.siteMetadata.title
