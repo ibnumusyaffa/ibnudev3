@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import PostThumbnail from "./PostThumbnail"
+import PostThumbnail from "../templates/PostThumbnail"
 import Seo from "../components/Seo"
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx

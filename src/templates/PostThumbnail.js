@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styles from "./PostThumbnail.module.css"
 import Img from "gatsby-image"
-function PostItem(props) {
+function PostThumbnail(props) {
   return (
     <div>
       <div className={styles.post}>
@@ -33,4 +33,4 @@ function PostItem(props) {
   )
 }
 
-export default PostItem
+export default PostThumbnail
