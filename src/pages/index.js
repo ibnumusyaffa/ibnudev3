@@ -1,13 +1,14 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
-
 import PostItem from "../components/PostItem"
-export default ({ data }) => {
+const BlogIndex = ({ data }) => {
+  const { edges: posts } = data.allMdx
+
   return (
     <Layout>
       <div className="max-w-full">
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        {posts.map(({ node }) => (
           <PostItem key={node.id} node={node}></PostItem>
         ))}
       </div>
@@ -15,17 +16,16 @@ export default ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
+export const pageQuery = graphql`
+  query blogIndex {
+    allMdx {
       edges {
         node {
           id
           frontmatter {
             title
             category
-            
+
             cover {
               childImageSharp {
                 fluid(maxWidth: 400) {
@@ -44,3 +44,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogIndex

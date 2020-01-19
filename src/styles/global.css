@@ -7,3 +7,9 @@
     font-size: 112.5%; /* --> 18px base size */
   }
 }
+
+
+blockquote{
+  border-left: 3px solid #e04a4a;
+  font-size: 1rem;
+}

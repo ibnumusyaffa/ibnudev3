@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/Layout"
 import Fb from "../assets/fb"
 import Avatar from "../components/Avatar"
 import Img from "gatsby-image"
-export default ({ data }) => {
-  const post = data.markdownRemark
+export default function PageTemplate({ data: { mdx } }) {
+  const post = mdx;
   return (
     <Layout>
       <div className="mt-3">
@@ -26,6 +27,7 @@ export default ({ data }) => {
           className="sm:mt-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+         <MDXRenderer>{post.body}</MDXRenderer>
         <div className="bg-gray-200 rounded-sm  h-auto flex items-center flex-col p-5 mt-12">
           <h3>Share this post</h3>
           <div className="text-sm">
@@ -43,11 +45,11 @@ export default ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+export const pageQuery = graphql`
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
       frontmatter {
         title
         category

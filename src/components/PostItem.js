@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
+import React from "react"
+import { Link } from "gatsby"
 import styles from "./PostItem.module.css"
 import Img from "gatsby-image"
 function PostItem(props) {
@@ -19,7 +19,6 @@ function PostItem(props) {
 
           <div className="flex items-center text-xs h-10">
             <div className="text-red-600">
-             
               {props.node.frontmatter.category}
             </div>
             <div className="px-3">·</div>
