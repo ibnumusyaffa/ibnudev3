@@ -8,6 +8,7 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           `gatsby-remark-copy-linked-files`,
+          
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -17,6 +18,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-remark-reading-time',
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -39,10 +41,11 @@ module.exports = {
     //     ],
     //   },
     // },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-emotion`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {

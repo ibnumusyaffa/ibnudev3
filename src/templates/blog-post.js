@@ -2,11 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/Layout"
-import Fb from "../assets/fb"
 import Avatar from "../components/Avatar"
 import Img from "gatsby-image"
-export default function PageTemplate({ data: { mdx } }) {
-  const post = mdx;
+import Share from "../components/Share"
+import MdxProvider from "../components/mdx/MdxProvider"
+export default function PageTemplate({ data: { mdx }, location }) {
+  const post = mdx
   return (
     <Layout>
       <div className="mt-3">
@@ -17,7 +18,7 @@ export default function PageTemplate({ data: { mdx } }) {
             <div className="hidden sm:block mx-3">·</div>
             <div className="">{post.frontmatter.date}</div>
             <div className="mx-3">·</div>
-            <div className="">5 minute(s) read</div>
+            <div className="">{post.fields.readingTime.text}</div>
           </div>
         </div>
         <div className="mt-8">
@@ -27,19 +28,14 @@ export default function PageTemplate({ data: { mdx } }) {
           className="sm:mt-4"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-         <MDXRenderer>{post.body}</MDXRenderer>
-        <div className="bg-gray-200 rounded-sm  h-auto flex items-center flex-col p-5 mt-12">
-          <h3>Share this post</h3>
-          <div className="text-sm">
-            Liked this article? Please support publications like this by sharing
-            it with your friends.
-          </div>
-          <div className="mt-5">
-            <Fb></Fb>
-            <Fb></Fb>
-            <Fb></Fb>
-          </div>
-        </div>
+        <MdxProvider>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MdxProvider>
+
+        <Share
+          title={post.frontmatter.title}
+          url={location.origin + location.pathname}
+        ></Share>
         <Avatar></Avatar>
       </div>
     </Layout>
@@ -60,6 +56,11 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+      fields {
+        readingTime {
+          text
         }
       }
     }
