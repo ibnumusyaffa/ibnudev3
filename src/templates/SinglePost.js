@@ -22,7 +22,7 @@ export default function PageTemplate({ data: { mdx }, location }) {
           </div>
         </div>
         <div className="mt-8 mb-8">
-          <Img fluid={post.frontmatter.cover.childImageSharp.fluid} />
+          <Img fluid={post.frontmatter.image.childImageSharp.fluid} />
         </div>
         <MdxProvider>
           <MDXRenderer>{post.body}</MDXRenderer>
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
         title
         category
         date(formatString: "DD MMMM, YYYY")
-        cover {
+        image {
           childImageSharp {
             fluid(maxWidth: 700) {
               ...GatsbyImageSharpFluid

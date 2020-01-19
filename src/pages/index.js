@@ -1,5 +1,5 @@
 import React from "react"
-import {  graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import PostItem from "./PostThumbnail"
 const BlogIndex = ({ data }) => {
@@ -18,7 +18,10 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx {
+    allMdx(
+      filter: { frontmatter: { date: { ne: null } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
       edges {
         node {
           id
@@ -26,7 +29,7 @@ export const pageQuery = graphql`
             title
             category
             description
-            cover {
+            image {
               childImageSharp {
                 fluid(maxWidth: 400) {
                   ...GatsbyImageSharpFluid

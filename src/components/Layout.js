@@ -17,7 +17,7 @@ export default ({ children }) => {
       </Headroom>
 
       <div className="flex justify-center">
-        <div style={{ width: 700 }} className="px-4 mt-6 md:mt-10">
+        <div style={{ width: 750 }} className="px-4 mt-6 md:mt-10">
           {children}
         </div>
       </div>

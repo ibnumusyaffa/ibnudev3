@@ -43,7 +43,7 @@ function Navigation() {
     >
       <div
         className="flex justify-between  items-center px-3 h-full"
-        style={{ width: 700 }}
+        style={{ width: 750 }}
       >
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
