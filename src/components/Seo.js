@@ -1,10 +1,9 @@
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 import DefaultImage from "../images/redd-thumbnail.jpg"
 
-function SEO({ type, lang, meta, keywords, image, title, description }) {
+function SEO({ type, meta, keywords, image, title, description }) {
   return (
     <StaticQuery query={detailsQuery}>
       {data => {
@@ -18,15 +17,16 @@ function SEO({ type, lang, meta, keywords, image, title, description }) {
             : data
             ? data.site.siteMetadata.siteUrl + image
             : image
-        const ogTitle = `${title} | ${data.site.siteMetadata.title}`
-
+        const ogTitle = title
+          ? `${title} | ${data.site.siteMetadata.title}`
+          : data.site.siteMetadata.title
+        console.log(data.site.siteMetadata.title)
         return (
           <Helmet
             htmlAttributes={{
-              lang,
+              lang: "id",
             }}
-            title={title}
-            titleTemplate={titleTemplate}
+            title={ogTitle}
           >
             {/* General */}
             <meta name="description" content={metaDescription} />
@@ -56,25 +56,6 @@ function SEO({ type, lang, meta, keywords, image, title, description }) {
       }}
     </StaticQuery>
   )
-}
-
-SEO.defaultProps = {
-  type: "website",
-  lang: `en`,
-  meta: [],
-  keywords: [],
-  image: DefaultImage,
-}
-
-SEO.propTypes = {
-  type: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  image: PropTypes.string,
-
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
 }
 
 export default SEO

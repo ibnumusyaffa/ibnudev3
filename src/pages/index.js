@@ -2,11 +2,23 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import PostItem from "./PostThumbnail"
+import Seo from "../components/Seo"
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
 
   return (
     <Layout>
+      <Seo
+        keywords={[
+          "redd",
+          "developer",
+          "technology",
+          "javascript",
+          "react",
+          "programming",
+          "blog",
+        ]}
+      ></Seo>
       <div className="max-w-full">
         {posts.map(({ node }) => (
           <PostItem key={node.id} node={node}></PostItem>

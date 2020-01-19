@@ -6,10 +6,18 @@ import Avatar from "../components/Avatar"
 import Img from "gatsby-image"
 import Share from "../components/Share"
 import MdxProvider from "../components/mdx/MdxProvider"
+import Seo from "../components/Seo"
 export default function PageTemplate({ data: { mdx }, location }) {
   const post = mdx
   return (
     <Layout>
+      <Seo
+        type="article"
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        keywords={post.frontmatter.keywords}
+        image={post.frontmatter.image.childImageSharp.ogImage.src}
+      />
       <div className="mt-3">
         <h1 className="text-left sm:text-center">{post.frontmatter.title}</h1>
         <div className="sm:flex sm:justify-center sm:items-center">
@@ -48,7 +56,10 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         image {
           childImageSharp {
-            fluid(maxWidth: 700) {
+            fluid(maxWidth: 786, quality: 95) {
+              ...GatsbyImageSharpFluid
+            }
+            ogImage: fluid(maxWidth: 1200, quality: 95) {
               ...GatsbyImageSharpFluid
             }
           }

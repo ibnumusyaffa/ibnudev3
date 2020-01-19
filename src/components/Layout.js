@@ -1,16 +1,10 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import Footer from "./Footer"
 import Navigation from "./Navigation"
 import Headroom from "react-headroom"
 export default ({ children }) => {
   return (
     <React.Fragment>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>My Title</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
       <Headroom>
     
         <Navigation></Navigation>
