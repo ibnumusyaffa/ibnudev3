@@ -7,7 +7,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // remote CMS you could also check to see if the parent node was a
   // `File` node here
   if (node.internal.type === "Mdx") {
-    const value = createFilePath({ node, getNode, basePath: `contents` })
+    const value = createFilePath({ node, getNode })
     createNodeField({
       // Name of the field you are adding
       name: "slug",
