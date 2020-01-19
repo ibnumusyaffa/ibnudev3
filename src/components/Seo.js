@@ -17,7 +17,8 @@ function SEO({ type, meta, keywords, image, title, description }) {
         const ogTitle = title
           ? `${title} | ${data.site.siteMetadata.title}`
           : data.site.siteMetadata.title
-        console.log(data.site.siteMetadata.title)
+        console.log(imageFullUrl)
+
         return (
           <Helmet
             htmlAttributes={{
@@ -27,9 +28,6 @@ function SEO({ type, meta, keywords, image, title, description }) {
           >
             {/* General */}
             <meta name="description" content={metaDescription} />
-            {keywords && keywords.length > 0 && (
-              <meta name="keywords" content={keywords.join()} />
-            )}
 
             {/* OpenGraph */}
             <meta property="og:type" content={type} />

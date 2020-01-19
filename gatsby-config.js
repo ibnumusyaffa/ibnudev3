@@ -1,5 +1,5 @@
 
-const siteUrl = 'http://localhost:8000'
+const siteUrl = 'https://ibnu.dev'
 module.exports = {
   siteMetadata: {
     siteUrl,

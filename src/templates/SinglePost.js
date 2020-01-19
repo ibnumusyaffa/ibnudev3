@@ -9,13 +9,13 @@ import MdxProvider from "../components/mdx/MdxProvider"
 import Seo from "../components/Seo"
 export default function PageTemplate({ data: { mdx }, location }) {
   const post = mdx
+  console.log(post)
   return (
     <Layout>
       <Seo
         type="article"
         title={post.frontmatter.title}
-        description={post.frontmatter.description}
-        keywords={post.frontmatter.keywords}
+        description={post.frontmatter.description || post.excerpt}
         image={post.frontmatter.image.childImageSharp.ogImage.src}
       />
       <div className="mt-3">
@@ -53,6 +53,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         category
+        description
         date(formatString: "DD MMMM, YYYY")
         image {
           childImageSharp {
@@ -70,6 +71,7 @@ export const pageQuery = graphql`
           text
         }
       }
+      excerpt(pruneLength: 100)
     }
   }
 `
