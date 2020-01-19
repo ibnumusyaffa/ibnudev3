@@ -1,7 +1,7 @@
 import React from "react"
 import {  graphql } from "gatsby"
 import Layout from "../components/Layout"
-import PostItem from "../components/PostItem"
+import PostItem from "./PostThumbnail"
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
 
@@ -25,7 +25,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             category
-
+            description
             cover {
               childImageSharp {
                 fluid(maxWidth: 400) {

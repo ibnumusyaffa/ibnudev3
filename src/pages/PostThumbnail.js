@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import styles from "./PostItem.module.css"
+import styles from "./PostThumbnail.module.css"
 import Img from "gatsby-image"
 function PostItem(props) {
   return (
@@ -25,7 +25,7 @@ function PostItem(props) {
             <div className="text-gray-600">{props.node.frontmatter.date}</div>
           </div>
           <p className="text-gray-900 text-sm leading-snug">
-            {props.node.excerpt}
+            {props.node.frontmatter.description || props.node.excerpt}
           </p>
         </div>
       </div>

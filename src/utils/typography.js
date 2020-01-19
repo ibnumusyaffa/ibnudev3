@@ -3,7 +3,7 @@ import kirkhamTheme from "typography-theme-kirkham"
 
 kirkhamTheme.bodyFontFamily = ["Source Sans Pro"]
 kirkhamTheme.baseLineHeight = 1.8
-kirkhamTheme.baseFontSize = "15px"
+kirkhamTheme.baseFontSize = "17px"
 const typography = new Typography(kirkhamTheme)
 
 
