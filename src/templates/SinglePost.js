@@ -9,10 +9,11 @@ import MdxProvider from "../components/mdx/MdxProvider"
 import Seo from "../components/Seo"
 export default function PageTemplate({ data: { mdx }, location }) {
   const post = mdx
-  console.log(post)
+  console.log(location)
   return (
     <Layout>
       <Seo
+       url={location.href}
         type="article"
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}

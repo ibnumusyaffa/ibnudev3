@@ -3,12 +3,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import PostThumbnail from "../templates/PostThumbnail"
 import Seo from "../components/Seo"
-const BlogIndex = ({ data }) => {
+const BlogIndex = ({ data, location }) => {
   const { edges: posts } = data.allMdx
-  console.log(posts)
+  console.log(location)
   return (
     <Layout>
       <Seo
+        url={location.href}
+        type="article"
         keywords={[
           "redd",
           "developer",

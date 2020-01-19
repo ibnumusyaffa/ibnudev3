@@ -3,7 +3,7 @@ import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 import DefaultImage from "../images/redd-thumbnail.jpg"
 
-function SEO({ type, meta, keywords, image, title, description }) {
+function SEO({ type, meta, keywords, image, title, description, url }) {
   return (
     <StaticQuery query={detailsQuery}>
       {data => {
@@ -13,7 +13,7 @@ function SEO({ type, meta, keywords, image, title, description }) {
           type === "website" ? "summary" : "summary_large_image"
         const imageFullUrl = image
           ? data.site.siteMetadata.siteUrl + image
-          : DefaultImage
+          : data.site.siteMetadata.siteUrl + DefaultImage
         const ogTitle = title
           ? `${title} | ${data.site.siteMetadata.title}`
           : data.site.siteMetadata.title
@@ -30,6 +30,7 @@ function SEO({ type, meta, keywords, image, title, description }) {
             <meta name="description" content={metaDescription} />
 
             {/* OpenGraph */}
+            <meta property="og:url" content={url} />
             <meta property="og:type" content={type} />
             <meta property="og:title" content={ogTitle} />
             <meta property="og:description" content={metaDescription} />
