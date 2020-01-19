@@ -37,7 +37,10 @@ const StyledLink = styled(Link)`
 `
 function Navigation() {
   return (
-    <div className="flex items-center justify-center sticky top-0 z-50  bg-white border-t-0 border-l-0 border-r-0 border-b border-gray-200 border-solid h-16">
+    <div
+      className="flex items-center justify-center  top-0 z-50  bg-white border-t-0 border-l-0 border-r-0 border-b border-gray-200 border-solid "
+      style={{ height: 65 }}
+    >
       <div
         className="flex justify-between  items-center px-3 h-full"
         style={{ width: 700 }}
@@ -53,7 +56,11 @@ function Navigation() {
           </Link>
         </div>
         <div className="flex text-sm h-full items-center">
-          <StyledLink to="/about" className="text-red-600" activeClassName="active">
+          <StyledLink
+            to="/about"
+            className="text-red-600"
+            activeClassName="active"
+          >
             About
           </StyledLink>
         </div>

@@ -21,13 +21,9 @@ export default function PageTemplate({ data: { mdx }, location }) {
             <div className="">{post.fields.readingTime.text}</div>
           </div>
         </div>
-        <div className="mt-8">
+        <div className="mt-8 mb-8">
           <Img fluid={post.frontmatter.cover.childImageSharp.fluid} />
         </div>
-        <div
-          className="sm:mt-4"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
         <MdxProvider>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MdxProvider>
