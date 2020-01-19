@@ -1,6 +1,11 @@
+
+const siteUrl = 'http://localhost:8000'
 module.exports = {
   siteMetadata: {
-    title: `Pandas Eating Lots`,
+    siteUrl,
+    title: `Redd Developer`,
+    description: `Tracking-free place to find technical knowledge about web development.`,
+    author: `@kettanaito`,
   },
   plugins: [
     {
