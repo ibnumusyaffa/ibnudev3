@@ -13,7 +13,7 @@ export default function PageTemplate({ data: { mdx }, location }) {
   return (
     <Layout>
       <Seo
-       url={location.href}
+        url={location.href}
         type="article"
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
