@@ -1,5 +1,4 @@
-
-const siteUrl = 'https://ibnu.dev'
+const siteUrl = "https://ibnu.dev"
 module.exports = {
   siteMetadata: {
     siteUrl,
@@ -34,6 +33,15 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `#ff4336`,
+        // Disable the loading spinner.
+        showSpinner: true,
       },
     },
     "gatsby-remark-reading-time",
