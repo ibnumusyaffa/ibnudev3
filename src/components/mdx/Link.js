@@ -19,6 +19,7 @@ const Link = (props) => {
       {...props}
       target={isExternal && '_blank'}
       isExternal={isExternal}
+      className="text-red-600"
     >
       {props.children}
       {isExternal && (

@@ -5,9 +5,14 @@ import { GoRepo } from "react-icons/go"
 
 import Text from "../Text"
 
-const StyledContainer = styled.div`
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  /* align-content: center; */
+  /* justify-content:center; */
   background-color: #f6f8fa;
   border-radius: 3px;
+  padding:15px;
 `
 
 const GitHubRepo = ({ owner, repo }) => {
@@ -20,22 +25,21 @@ const GitHubRepo = ({ owner, repo }) => {
   }, [owner, repo])
 
   return (
-    <div className="flex justify-center items-center bg-gray-200 rounded py-5">
-      <div>
+    <Container className="mb-5">
+      <div className="pt-2">
         <GoRepo size="48"></GoRepo>
       </div>
-
-      <div className="flex justify-center flex-col">
+      <div className="">
         {data ? (
           <>
-            <a href={data.html_url}>{data.name}</a>
+            <a className="p-0 m-0 text-red-600" href={data.html_url}>{data.name}</a>
             <div className="text-sm">{data.description}</div>
           </>
         ) : (
           <Text small>Communicating to the octocat...</Text>
         )}
       </div>
-    </div>
+    </Container>
   )
 }
 

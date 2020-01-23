@@ -8,7 +8,10 @@ import {
 
 function Share({ title, url }) {
   return (
-    <div className="bg-gray-200 rounded-sm  h-auto flex items-center flex-col p-5 mt-12">
+    <div
+      style={{ backgroundColor: "#f6f8fa" }}
+      className="rounded-sm  h-auto flex items-center flex-col p-5 mt-12"
+    >
       <h3>Share this post</h3>
       <div className="text-sm">
         Liked this article? Please support publications like this by sharing it
