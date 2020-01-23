@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Box, Composition } from 'atomic-layout'
-import { GoRepo } from 'react-icons/go'
+import React from "react"
+import styled from "styled-components"
+import { Box, Composition } from "atomic-layout"
+import { GoRepo } from "react-icons/go"
 
-import Text from '../Text'
+import Text from "../Text"
 
 const StyledContainer = styled.div`
   background-color: #f6f8fa;
@@ -15,46 +15,27 @@ const GitHubRepo = ({ owner, repo }) => {
 
   React.useEffect(() => {
     fetch(`https://api.github.com/repos/${owner}/${repo}`)
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(setData)
   }, [owner, repo])
 
   return (
-    <Composition
-      as={StyledContainer}
-      areas="icon content"
-      templateCols="48px 1fr"
-      gutter={1}
-      alignItems="center"
-      marginVertical={2}
-      padding={1.5}
-    >
-      {({ Icon, Content }) => (
-        <>
-          <Icon as={GoRepo} size={48} align="start" />
-          <Content marginTop="-8px">
-            {data ? (
-              <>
-                <Box
-                  as="a"
-                  marginBottom="4px"
-                  href={data.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {data.name}
-                </Box>
-                <Text as="p" small>
-                  {data.description}
-                </Text>
-              </>
-            ) : (
-              <Text small>Communicating to the octocat...</Text>
-            )}
-          </Content>
-        </>
-      )}
-    </Composition>
+    <div className="flex justify-center items-center bg-gray-200 rounded py-5">
+      <div>
+        <GoRepo size="48"></GoRepo>
+      </div>
+
+      <div className="flex justify-center flex-col">
+        {data ? (
+          <>
+            <a href={data.html_url}>{data.name}</a>
+            <div className="text-sm">{data.description}</div>
+          </>
+        ) : (
+          <Text small>Communicating to the octocat...</Text>
+        )}
+      </div>
+    </div>
   )
 }
 
