@@ -2,9 +2,9 @@ const siteUrl = "https://ibnu.dev"
 module.exports = {
   siteMetadata: {
     siteUrl,
-    title: `Redd Developer`,
-    description: `Tracking-free place to find technical knowledge about web development.`,
-    author: `@kettanaito`,
+    title: `Ibnu Musyaffa`,
+    description: `Blog catatan tentang software development`,
+    author: `@ibnu Musyaffa`,
   },
   plugins: [
     {
